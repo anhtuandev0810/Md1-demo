@@ -14,7 +14,9 @@ body {
     left: 0;
     top: 0;
     cursor: pointer;
-    z-index: 110;
+    z-index: 210;
+    position: fixed;
+    padding-left: 10px;
 }
 
 .container-header {
@@ -58,9 +60,16 @@ body {
     cursor: pointer;
 }
 
+.container-body {
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+}
+
 .body-navbar {
     padding: 0 150px;
     height: 55px;
+    
 }
 
 .body-navbar {

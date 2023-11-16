@@ -77,15 +77,17 @@ if (loggedIn) {
 
 // console.log(mainDetail);
 function toDetailProduct(product) {
+    console.log(product.children);
     location.href = './product.html';
     let products = JSON.parse(localStorage.getItem('products'));
     console.log(products);
-    let imgSrc = product.children[0].children[0].currentSrc;
-    let title = product.children[1].children[0].innerText;
-    console.log(title);
-    let price = product.children[1].children[1].children[0].textContent;
+    let imgSrc = product.children[0].src;
+    let cardProduct = product.closest('.card');
+    let title = cardProduct.children[1].children[0].innerText;
+    let price = cardProduct.children[1].children[1].children[0].innerText;
     let code = products.find(element =>  element.name === title).code;
     let productDetail = {imgSrc: imgSrc, title: title, price: price, code: code};
+    console.log(productDetail);
     localStorage.setItem('product-detail', JSON.stringify((productDetail)));
 }
 
@@ -121,6 +123,8 @@ function renderProducts(id) {
     })
     document.getElementById("items").innerHTML = items;
 }
+
+
 renderProducts(0);
 function addToCart(id) {
     if (!loggedIn) {

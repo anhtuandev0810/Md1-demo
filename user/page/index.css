@@ -10,7 +10,9 @@ body {
     left: 0;
     top: 0;
     cursor: pointer;
-    z-index: 110;
+    z-index: 210;
+    padding-left: 10px;
+    position: fixed;
 }
 
 .container-header {
@@ -55,6 +57,10 @@ body {
 
 .body-navbar {
     padding: 0 150px;
+    position: fixed;
+    width: 100%;
+    z-index: 200;
+
 }
 
 .body-navbar {
@@ -62,7 +68,7 @@ body {
     color: white;
     display: flex;
     justify-content: space-between;
-    position: relative;
+    /* position: relative; */
 }
 
 .body-navbar-list {
