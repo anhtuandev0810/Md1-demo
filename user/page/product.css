@@ -322,3 +322,41 @@ li {
     right: -10px;
     top: -15px;
 }
+
+#snackbar {
+    visibility: hidden;
+    min-width: 240px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 25px;
+    font-size: 15px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#snackbar.success {
+    background-color: rgb(13, 200, 13);
+}
+#snackbar.warning {
+    background-color: rgb(250, 32, 32);
+}
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 25px;
+        opacity: 1;
+    }
+}
