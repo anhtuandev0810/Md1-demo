@@ -131,7 +131,8 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
-    border: 2px solid;
+    box-shadow: 0 0 0 2px #ded9d9;
+    /* border: 2px solid; */
     color: black;
     position: absolute;
     top: 55px;
@@ -147,8 +148,10 @@ body {
 }
 
 .img-bar>div:hover {
-    border-top: 1px solid;
-    border-bottom: 1px solid;
+    /* border-top: 1px solid;
+    border-bottom: 1px solid; */
+    background-color: #088178;
+    color: #fff;
 }
 
 .footer-item {
