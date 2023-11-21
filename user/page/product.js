@@ -72,7 +72,7 @@ str1 += `
   <h1>${productDetail.title.toUpperCase()}</h1>
   <h3>Men's Fashion T-Shirt</h3>
   <h4>${productDetail.price}</h4>
-  <input type="number"  id="numberProduct" value=1  onchange="handleChange()"/>
+  <input type="number"  id="numberProduct" value=1 onchange="handleChange()" />
   <button class="normal" onclick="addToCart(productDetail.code)">Add to Cart</button>
   <h4>Product Detail</h4>
   <span
@@ -87,24 +87,21 @@ str1 += `
 
 mainDetail.innerHTML = str1;
 
-let numValue = 0;
+let inputValue;
 function handleChange() {
-    let number = document.getElementById('numberProduct');
-    number.addEventListener('input', () => {
-       console.log(typeof number.value); 
-       
-    });
-};
+  inputValue = document.getElementById("numberProduct").value;
+}
 
-console.log(numValue);
-function addToCart(productDetail) {
+function addToCart(props) {
+  console.log(typeof props );
+  // let numValue = document.getElementById('numberProduct').value;
   console.log('kkkk');
     if (!loggedIn) {
         notification("Chưa đăng nhập, vui lòng đăng nhập", "warning");
     } else {
-        let index = products.findIndex((e) => e.code == productDetail.code);
+        let index = products.findIndex((e) => e.code == props);
         if (index != -1) {
-            let existInCart = person.cart.findIndex(e => e.code == productDetail.code);
+            let existInCart = person.cart.findIndex(e => e.code == props);
             if (existInCart !== -1) {
                 person.cart[existInCart].quantity++;
             } else {
@@ -114,7 +111,7 @@ function addToCart(productDetail) {
                     price: products[index].price,
                     img: products[index].image,
                     category: products[index].category,
-                    quantity: 1,
+                    quantity: Number(inputValue),
                 });
             }
             notification("Thêm sản phẩm thành công", "success");
@@ -140,3 +137,5 @@ function notification(text, type) {
 function handleReloadProduct() {
     location.href = './index.html';
 }
+
+
